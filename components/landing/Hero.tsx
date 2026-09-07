@@ -19,10 +19,10 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
-  const textY = useTransform(scrollYProgress, [0, 0.6], ["0%", "15%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  // Single unified overlay: fades in as the hero scrolls out — one clean cover, no double-fade
+  const overlayOpacity = useTransform(scrollYProgress, [0.3, 0.85], [0, 1]);
 
   return (
     <section
@@ -50,9 +50,14 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-transparent to-[#0a0a0b]/40" />
       </motion.div>
 
-      {/* Content */}
+      {/* Single scroll-driven fade-to-black overlay — fires once, cleanly */}
       <motion.div
-        style={{ y: textY, opacity }}
+        className="absolute inset-0 z-20 bg-[#0a0a0b] pointer-events-none"
+        style={{ opacity: overlayOpacity }}
+      />
+
+      {/* Content — no scroll-driven opacity here to avoid double fade */}
+      <div
         className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-end"
       >
         {/* Small label — top left */}
@@ -135,7 +140,7 @@ export default function Hero() {
             </div>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div
