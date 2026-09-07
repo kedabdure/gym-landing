@@ -28,7 +28,7 @@ export default function Hero() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-dvh pt-32 pb-20 px-6 md:px-10 lg:px-16 flex flex-col justify-end overflow-hidden"
+      className="relative min-h-svh pt-32 pb-20 px-6 md:px-10 lg:px-16 flex flex-col justify-end overflow-hidden"
       aria-label="Hero section"
     >
       {/* Background image with parallax */}
