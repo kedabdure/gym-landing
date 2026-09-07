@@ -28,7 +28,7 @@ export default function Hero() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-[100dvh] pt-32 pb-20 px-6 md:px-10 lg:px-16 flex flex-col justify-end overflow-hidden"
+      className="relative min-h-dvh pt-32 pb-20 px-6 md:px-10 lg:px-16 flex flex-col justify-end overflow-hidden"
       aria-label="Hero section"
     >
       {/* Background image with parallax */}
@@ -87,7 +87,7 @@ export default function Hero() {
               }}
               className="overflow-hidden"
             >
-              <span className="text-hero text-[#f0ede8] font-display block leading-[0.9] tracking-tight">
+              <span className="text-hero text-text-primary font-display block leading-[0.9] tracking-tight">
                 {line}
               </span>
             </motion.div>
@@ -99,7 +99,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-4 border-t border-[#1f1f22]/80"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-4 border-t border-border-light/80"
         >
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 w-full">
             <div className="max-w-xs">

@@ -65,8 +65,9 @@ const quickLinks = [
   { name: "Programs", href: "#programs" },
   { name: "About", href: "#why-us" },
   { name: "Facility", href: "#facility" },
+  { name: "FAQ", href: "#faq" },
+  { name: "Contact", href: "#contact" },
   { name: "Register", href: "/register" },
-  { name: "Contact", href: "#footer" },
 ];
 
 export default function Footer() {

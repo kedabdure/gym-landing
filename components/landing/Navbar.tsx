@@ -9,7 +9,8 @@ const navLinks = [
   { label: "Programs", href: "#programs" },
   { label: "About", href: "#why-us" },
   { label: "Facility", href: "#facility" },
-  { label: "Contact", href: "#footer" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -32,7 +33,9 @@ export default function Navbar() {
   // Prevent body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   return (
@@ -56,7 +59,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-display text-2xl tracking-widest text-[#f0ede8] hover:text-[#ff5500] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-[#ff5500] focus-visible:outline-offset-4"
+            className="font-display text-2xl tracking-widest text-[#f0ede8] hover:text-[#ff5500] transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#ff5500] focus-visible:outline-offset-4"
             aria-label="IRONFORGE — Home"
           >
             IRONFORGE
@@ -68,7 +71,7 @@ export default function Navbar() {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className="text-label text-[#8a8a8a] hover:text-[#f0ede8] transition-colors duration-200 relative group"
+                  className="text-label text-[#8a8a8a] hover:text-[#f0ede8] transition-colors duration-200 relative group cursor-pointer"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#ff5500] group-hover:w-full transition-all duration-300" />
@@ -82,7 +85,7 @@ export default function Navbar() {
             <Link
               href="/register"
               id="nav-join-cta"
-              className="text-label bg-[#ff5500] text-[#0a0a0b] px-5 py-2.5 rounded-sm hover:bg-[#d94800] transition-all duration-200 font-semibold tracking-widest"
+              className="text-label bg-[#ff5500] text-[#0a0a0b] px-5 py-2.5 rounded-sm hover:bg-[#d94800] transition-all duration-200 font-semibold tracking-widest cursor-pointer"
             >
               JOIN NOW
             </Link>
@@ -91,7 +94,7 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-[#f0ede8] p-2 rounded-sm hover:text-[#ff5500] transition-colors"
+            className="md:hidden text-[#f0ede8] p-2 rounded-sm hover:text-[#ff5500] transition-colors cursor-pointer"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
@@ -130,7 +133,7 @@ export default function Navbar() {
                     <a
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
-                      className="text-section text-[#f0ede8] hover:text-[#ff5500] transition-colors duration-200 block"
+                      className="text-section text-[#f0ede8] hover:text-[#ff5500] transition-colors duration-200 block cursor-pointer"
                     >
                       {link.label}
                     </a>
@@ -142,13 +145,13 @@ export default function Navbar() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45, duration: 0.4 }}
+              transition={{ delay: 0.1 + navLinks.length * 0.07 + 0.05, duration: 0.4 }}
               className="mt-12"
             >
               <Link
                 href="/register"
                 onClick={() => setMenuOpen(false)}
-                className="text-label bg-[#ff5500] text-[#0a0a0b] px-8 py-4 rounded-sm hover:bg-[#d94800] transition-colors inline-block font-semibold tracking-widest"
+                className="text-label bg-[#ff5500] text-[#0a0a0b] px-8 py-4 rounded-sm hover:bg-[#d94800] transition-colors inline-block font-semibold tracking-widest cursor-pointer"
               >
                 JOIN NOW
               </Link>
